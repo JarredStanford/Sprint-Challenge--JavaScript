@@ -5,7 +5,7 @@
   Use this pattern to create your objects: 
   object name, diet, weight, length, period
 */
-class Dinosaur {
+/*class Dinosaur {
   constructor(name, diet, weight, length, period) {
     this.name = name;
     this.diet = diet;
@@ -16,13 +16,39 @@ class Dinosaur {
   roar() {
     return ("RAWERSRARARWERSARARARRRR!");
   }
-}
+}*/
 // tyrannosaurus, carnivorous, 7000kg, 12m, Late Cretaceous
-const tyrannosaurus = new Dinosaur("tyrannosaurus", "carnivorous", "7000kg", "12m", "Late Cretaceous")
+//const tyrannosaurus = new Dinosaur("tyrannosaurus", "carnivorous", "7000kg", "12m", "Late Cretaceous")
+
+const tyrannosaurus = {
+  name: "tyrannosaurus",
+  diet: "carnivorous",
+  weight: "7000kg",
+  length: "12m",
+  period: "Late Creataceous",
+  roar: function() {
+    return ("RAWERSRARARWERSARARARRRR!");
+  }
+}
+
 // stegosaurus, herbivorous, 2000kg, 9m, Late Jurassic
-const stegosaurus = new Dinosaur("stegosaurus", "herbivorous", "2000kg", "9m", "Late Jurassic")
+//const stegosaurus = new Dinosaur("stegosaurus", "herbivorous", "2000kg", "9m", "Late Jurassic")
+const stegosaurus = {
+  name: "stegosaurus",
+  diet: "herbivorous",
+  weight: "2000kg",
+  length: "9m",
+  period: "Late Jurassic"
+}
 // velociraptor, carnivorous, 15kg, 1.8m, Late Cretaceous
-const velociraptor = new Dinosaur("velociraptor", "carnivorous", "15kg", "1.8m", "Late Cretaceous")
+//const velociraptor = new Dinosaur("velociraptor", "carnivorous", "15kg", "1.8m", "Late Cretaceous")
+const velociraptor = {
+  name: "velociraptor",
+  diet: "carnivorous",
+  weight: "15kg",
+  length: "1.8m",
+  period: "Late Cretaceous"
+}
 // Using your dinosaur objects, log answers to these questions:
 
 // How much did tyrannosaurus weigh?
@@ -73,8 +99,10 @@ console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
-const uni = graduates.map(a =>a.university).filter(a => a.includes("Uni")).length;
-console.log(uni);
+const uni = graduates.map(a =>a.university).filter(a => a.includes("Uni"));
+//This question was confusing. It asks how many...but then it asks for an array that includes them all. If we just wanted the array
+//including them all, I would remove .length. If they wanted the length and the array, we could console.log(uni.length, uni)
+console.log(uni.length);
 
 
 // ==== ADVANCED Array Methods ====
@@ -100,7 +128,7 @@ The zoo wants to display both the scientific name and the animal name in front o
 */
 const animalNames = []
 zooAnimals.forEach(function(entry) {
-   animalNames.push("Name:" + entry.animal_name + ", " + "Scientific:" + " " + entry.scientific_name);
+   animalNames.push("Name: " + entry.animal_name + ", " + "Scientific: " + entry.scientific_name);
 });
 
 console.log(animalNames);
@@ -119,8 +147,10 @@ console.log(lowerCase);
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
-const largerPopulation = zooAnimals.filter(a => a.population < 5);
-console.log(largerPopulation);
+const largerPopulation = zooAnimals.filter(a => a.population < 5)
+//Again, unsure exactly what they were asking for. This provides all of the animals and their info in an array. If we wanted just the names
+//we would console.log(largerPopulation.map(a => a.animal_name));. Or add .map(a => a.animal_name)) to the original function.
+console.log(largerPopulation)
 
 /* Request 4: .reduce() 
 
